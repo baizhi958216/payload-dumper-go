@@ -4,6 +4,41 @@ An android OTA payload dumper written in Go.
 
 Download prebuilt binaries for macOS, Windows and Linux via [here](https://github.com/ssut/payload-dumper-go/releases).
 
+## Build
+```bash
+# Install golang before you build it
+# For ArchLinux
+$ sudo pacman -S go
+```
+```bash
+$ go mod tidy
+$ go mod download
+$ CGO_ENABLE=0 go build -trimpath -o ./payload-dumper-go
+```
+
+## Usage
+```bash
+Usage: ./payload-dumper-go [options] [inputfile]
+  -c int
+        Number of multiple workers to extract (shorthand) (default 4)
+  -concurrency int
+        Number of multiple workers to extract (default 4)
+  -l    Show list of partitions in payload.bin (shorthand)
+  -list
+        Show list of partitions in payload.bin
+  -o string
+        Set output directory (shorthand)
+  -output string
+        Set output directory
+  -p string
+        Dump only selected partitions (comma-separated) (shorthand)
+  -partitions string
+        Dump only selected partitions (comma-separated)
+```
+```bash
+$ ./payload-dumper-go ./payload.bin
+```
+
 ## Features
 
 ![screenshot](https://i.imgur.com/IJtwoWU.png)
